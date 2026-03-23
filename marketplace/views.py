@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Designer
+from .models import Designer, Product
 
 def home(request):
-    designers = Designer.objects.all()
-    return render(request, "home.html", {"designers": designers})
+    return render(request, 'index.html', {
+        'designers': Designer.objects.all(),
+        'products': Product.objects.all(),
+    })
